@@ -38,6 +38,13 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script><!--inclusão do axios-->
 <script>//.get pois foi a usada anteriormente//dado da requisição é lista de jogos.
+
+var axiosConfig = {
+	headers: {
+		Authorization: "bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJndWktZGV2QGdtYWlsLmNvbSIsImlhdCI6MTYyMDEzMzU4MiwiZXhwIjoxNjIwMzA2MzgyfQ.SRtglZW9AoNiftJ7stTO_B9xNmdH7m2GwBJ6k2H_zXk"
+	}//token pego no postman.
+}
+
     function createGame(){//recuperada no onclick do botão
         var titleInput = document.getElementById("title");
         var yearInput = document.getElementById("year");
@@ -102,7 +109,7 @@
             });         
          }
 
-    axios.get("http://localhost:3737/games").then(response =>{
+    axios.get("http://localhost:3737/games",axiosConfig).then(response =>{
         var games = response.data;
         var list = document.getElementById("games");//pega pelo id
 
